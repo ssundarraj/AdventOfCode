@@ -19,7 +19,6 @@ gawk -F '' '{
                 }
         }
 } END {
-        print gi gj di dj
        while (gi >= 1 && gj >= 1 && gi <= NR && gj <= NF) {
                if (seen[gi][gj] != 1)
                         ++steps
@@ -31,12 +30,11 @@ gawk -F '' '{
                                dj = 0
                        } else if (dj == 0) {
                               dj = di * -1
-                               di = 0
+                              di = 0
                        } 
                 }
                 gi += di
                 gj += dj
-                print gi " and " gj " and " di " and " dj
         }
         print steps
 }' $1
